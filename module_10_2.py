@@ -43,7 +43,7 @@ class Knight(Thread):
 # Создание класса
 
 first_knight = Knight('Sir Lancelot', 10)
-second_knight = Knight("Sir Galahad", 20)
+second_knight = Knight("Sir Galahad", 20, 200)
 
 first_knight.start()
 second_knight.start()
