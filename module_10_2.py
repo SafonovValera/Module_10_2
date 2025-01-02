@@ -12,27 +12,27 @@
 # Как можно заметить нужно сделать задержку в 1 секунду, инструменты для задержки выберите сами.
 # Пункты задачи:
 
-import threading
-import time
+from threading import Thread
+from time import sleep
 
 
 # Создайте класс Knight с соответствующими описанию свойствами.
 
-class Knight(threading.Thread):
-    def __init__(self, name, power):
-        threading.Thread.__init__(self)
+class Knight(Thread):
+    def __init__(self, name: str, power: int, enemies = 100):
+        Thread.__init__(self)
         self.name = name
         self.power = power
+        self. enemies = enemies
 
     def run(self):
-        print(f'{self.name}, на нас напали!')
         day = 0
-        enemies = 100
-        while enemies > 0:
-            time.sleep(1)
-            enemies -= self.power
+        print(f'{self.name}, на нас напали!')
+        while self.enemies > 0:
+            sleep(1)
+            self.enemies -= self.power
             day += 1
-            print(f'{self.name} сражается {day} день(дня)..., осталось {enemies} врагов.')
+            print(f'{self.name} сражается {day} день(дня)..., осталось {self.enemies} врагов.')
         print(f'{self.name} одержал победу спустя {day} дней(дня)!')
 
 
